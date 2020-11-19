@@ -1,0 +1,25 @@
+.card.light-version .file-field input[type=text] {
+border-bottom: 1px solid #fff; }
+.card.light-version .file-field input[type=text]::-webkit-input-placeholder {
+color: #fff;
+font-weight: 300; }
+.card.light-version .file-field input[type=text]::-moz-placeholder {
+color: #fff;
+font-weight: 300; }
+.card.light-version .file-field input[type=text]:-ms-input-placeholder {
+color: #fff;
+font-weight: 300; }
+.card.light-version .file-field input[type=text]::placeholder {
+color: #fff;
+font-weight: 300; }
+.card.light-version .file-field input[type=text]:focus:not([readonly]) {
+-webkit-box-shadow: 0 1px 0 0 #fff;
+box-shadow: 0 1px 0 0 #fff; }
+.card.light-version .file-field input[type=text].valid {
+border-bottom: 1px solid #00c851;
+-webkit-box-shadow: 0 1px 0 0 #00c851;
+box-shadow: 0 1px 0 0 #00c851; }
+.card.light-version .file-field input[type=text]:focus.valid {
+border-bottom: 1px solid #00c851;
+-webkit-box-shadow: 0 1px 0 0 #00c851;
+box-shadow: 0 1px 0 0 #00c851; }

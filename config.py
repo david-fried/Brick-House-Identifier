@@ -1,0 +1,2 @@
+# GMAPS API Key
+gkey = "AIzaSyA7syV4Z2LAYZ64QqKCcmUrGGN18-PmqX4"
