@@ -84,7 +84,7 @@ def address_form(model, submit_address, ADDRESS_SUBMIT_COUNT):
 
     data['Heading'] = 'THE CLASSIFICATION OF THIS PROPERTY IS:'
 
-    if best_guess_value >= 0.495:
+    if best_guess_value >= 0.395:
         data['Best_guess'] = best_guess_category + '.'
     else:
         data['Best_guess'] = 'Unknown.'
@@ -112,7 +112,7 @@ def image_form(model, image):
 
     data['Heading'] = 'THE CLASSIFICATION OF THIS PROPERTY IS:'
 
-    if best_guess_value >= 0.495:
+    if best_guess_value >= 0.395:
         data['Best_guess'] = best_guess_category + '.'
     else:
         data['Best_guess'] = 'Unknown.'
