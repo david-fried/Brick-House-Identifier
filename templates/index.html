@@ -32,8 +32,6 @@
   
 
       <div class="hero text-center">
-        <!-- <h1>UFO Sightings</h1>
-        <p>The Truth is Out There</p> -->
       </div>
 
     <div class="container-fluid">
@@ -323,8 +321,11 @@
 
           <form method="POST" action="/" role="form", name="address">
             <div class="form-group">
+                <br>
                 <label for="inputName">Address (please enter in the format given below)</label>
                 <input type="text" class="form-control" id="inputName" name="address" placeholder="6257 N Legett Ave Chicago, Illinois 60646">
+                <br>
+                <br>
                 <input type="submit" id="form-1" value="Submit Address" class="btn btn-default" style= "
                 background-color: #eceaf1;
                 color: black;
@@ -346,7 +347,7 @@
           <form method="POST" action="/" enctype="multipart/form-data">
               <div class="form-group">
                   <label for="inputName">Upload an image of a property.</label>
-                  <input type="file" multiple name="image" class="btn btn-default" ><br><br><br>
+                  <input type="file" single name="image" class="btn btn-default"><br><br><br>
                   <input type="submit" id="form-2" value="Submit Image" class="btn btn-default" style= "
                   background-color: #eceaf1;
                   color: black;
@@ -362,6 +363,15 @@
           </form>
 
           <hr>
+          <br>
+          <br>
+          <br>
+
+          <p><strong>Note:</strong>Images are classified in the following manner:</p>
+            <br>
+            <p>If the brick or the siding category is less than 50% the classification is considered "Unknown."
+              Otherwise, whichever category has the highest percentage receives the classification.</p>
+    
                 
         </div>
 
@@ -371,7 +381,9 @@
           <hr>
   
               <div class='cont'>
-                <h4><span>{{ data.Best_guess }}</span> 
+                <h4><span>{{data.Heading}}</span> 
+                    <br>
+                    <br><span><strong>{{data.Best_guess }}</strong></span>
                     <br>
                     <br><span>{{ data.Brick }}</span>
                     <br><span>{{ data.Siding }}</span>
@@ -394,5 +406,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
     
   </body>
-
 </html>

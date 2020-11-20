@@ -125,7 +125,7 @@ def main():
                 
     else:
 
-        data = {'Best_guess': '', 'Brick': '', 'Siding': '', 'Unknown': ''}
+        data = {'Heading': '', 'Best_guess': '', 'Brick': '', 'Siding': '', 'Unknown': ''}
    
     return render_template('index.html', data=data)
 
@@ -169,5 +169,3 @@ def model_characteristics():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-

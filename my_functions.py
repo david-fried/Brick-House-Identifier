@@ -5,31 +5,17 @@ from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, BatchN
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.transform import resize
-#For API CALL ADDRESS SUBMIT
 import urllib.request
 import json
-# Import google_streetview for the api module
 import os
 import google_streetview.api
 import time
 import glob
-# import streetview
-# import itertools
 from config import gkey
 from datetime import datetime
 
-# # creating a SQL Alchemy ORM
-# engine = create_engine('sqlite:///database/database.sqlite')
-# Base = automap_base()
-# Base.prepare(engine, reflect=True)
-
-# uploaded_images = Base.class.images
-
-
-
-
 ### ADDRESS INPUT ###
-###########returns model predictions from user address input###########
+###########returns classifications from user address input###########
 def address_form(model, submit_address, ADDRESS_SUBMIT_COUNT):
 
     #API CALL FOR USER ADDRESS SUBMIT IN FORM
@@ -39,14 +25,9 @@ def address_form(model, submit_address, ADDRESS_SUBMIT_COUNT):
     # submit_address = request.form["address"]
     input_address.append(submit_address)
     
-    # time.sleep(1)
-
     address = np.array(input_address)
 
-    # example output: ['37061 Lakeshore Blvd Eastlake, OH 44095']
     np.savetxt("static/data/user_address_submit.txt", address, fmt='%5s')
-
-    # time.sleep(1)
 
     #this is the first part of the streetview, url up to the address, this url will return a 600x600px image
     pre="https://maps.googleapis.com/maps/api/streetview?size=600x600&location="
@@ -101,20 +82,22 @@ def address_form(model, submit_address, ADDRESS_SUBMIT_COUNT):
     classifications = {0: 'Brick', 1: 'Siding', 2: 'Unknown'}
     best_guess_category = classifications[best_guess_index]
 
-    if best_guess_value >= 0.5:
-        data['Best_guess'] = f'The classification of this property type is: {best_guess_category}.'
+    data['Heading'] = 'THE CLASSIFICATION OF THIS PROPERTY IS:'
+
+    if best_guess_value >= 0.495:
+        data['Best_guess'] = best_guess_category + '.'
     else:
-        data['Best_guess'] = 'The classification of this property type is: Unknown.'
+        data['Best_guess'] = 'Unknown.'
 
     for i, prediction in enumerate(predictions):
-        data[classifications[i]] = f'{classifications[i]}: {round(100*prediction,0)}%'
+        data[classifications[i]] = f'{classifications[i]}: {int(round(100*prediction,0))}%'
  
     return (data, predictions, best_guess_category, address)
 
 
 
 ### IMAGE INPUT ###
-###########returns model predictions from user image upload###########
+###########returns model classifications from user image upload###########
 
 def image_form(model, image):
 
@@ -127,12 +110,14 @@ def image_form(model, image):
     classifications = {0: 'Brick', 1: 'Siding', 2: 'Unknown'}
     best_guess_category = classifications[best_guess_index]
 
-    if best_guess_value >= 0.5:
-        data['Best_guess'] = f'The classification of this property type is: {best_guess_category}.'
+    data['Heading'] = 'THE CLASSIFICATION OF THIS PROPERTY IS:'
+
+    if best_guess_value >= 0.495:
+        data['Best_guess'] = best_guess_category + '.'
     else:
-        data['Best_guess'] = 'The classification of this property type is: Unknown.'
+        data['Best_guess'] = 'Unknown.'
 
     for i, prediction in enumerate(predictions):
-        data[classifications[i]] = f'{classifications[i]}: {round(100*prediction,0)}%'
+        data[classifications[i]] = f'{classifications[i]}: {int(round(100*prediction,0))}%'
 
     return (data, predictions, best_guess_category)
