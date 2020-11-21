@@ -83,7 +83,7 @@ def main():
 
             request_files = request.files['image']
 
-            temp = 'static/upload_images/temp.jpg'
+            temp = 'static/uploaded_images/temp.jpg'
 
             request_files.save(temp)
 
@@ -123,7 +123,7 @@ def main():
 
         data = {'Heading': '', 'Best_guess': '', 'Brick': '', 'Siding': '', 'Unknown': ''}
 
-        image_path = 'static/images/upload_images/example.jpg'
+        image_path = 'static/uploaded_images/example.jpg'
 
     return render_template('index.html', data=data, form_submit = form_submit, image_path=image_path)
 
