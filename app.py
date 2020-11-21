@@ -71,6 +71,10 @@ def main():
 
             user_typed_address = request.form["address"]
 
+            if user_typed_address == "":
+
+                return redirect('/')
+
             # return model predictions from user address input
             data, predictions, best_guess_category, address, URL = address_form(model, user_typed_address)
 

@@ -64,7 +64,7 @@ def address_form(model, user_typed_address):
     URL = pre + address + suf
 
     image = plt.imread(urllib.request.urlopen(URL), format='JPG')
-   
+
     data, predictions, best_guess_category = model_classifications(model, image)
 
     return (data, predictions, best_guess_category, address, URL)
