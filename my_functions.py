@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, redirect
 import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, BatchNormalization, Flatten
@@ -10,13 +10,14 @@ import google_streetview.api
 import glob
 from config import gkey
 from datetime import datetime
+from urllib.error import HTTPError
 
 
 #returns classifications for an (uploaded) image
 
 def model_classifications(model, image):
     
-    resized_image = resize(image, (500,500,3))
+    resized_image = resize(image, (400, 400, 3))
     
     data = {}
     
@@ -61,7 +62,7 @@ def address_form(model, user_typed_address):
     suf=f"&key={gkey}&fov=60"
 
     URL = pre + address + suf
-        
+
     image = plt.imread(urllib.request.urlopen(URL), format='JPG')
    
     data, predictions, best_guess_category = model_classifications(model, image)

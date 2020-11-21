@@ -19,28 +19,27 @@ from my_functions import model_classifications, address_form, create_full_image_
 from config import gkey
 
 # Image processing model
-model = Sequential()
-model.add(Conv2D(filters=2, kernel_size=2, padding='same',
-                 activation='relu', input_shape=(500, 500, 3)))
-model.add(MaxPooling2D(pool_size=2))
 
-model.add(Conv2D(filters=4, kernel_size=2, padding='same', activation='relu'))
+model = Sequential()
+
+model.add(Conv2D(filters=4, kernel_size=2, padding='same',
+                 activation='relu', input_shape=(400, 400, 3)))
 model.add(MaxPooling2D(pool_size=2))
-model.add(Dropout(0.1))
 
 model.add(Conv2D(filters=8, kernel_size=2, padding='same', activation='relu'))
 model.add(MaxPooling2D(pool_size=2))
-model.add(Dropout(0.2))
+model.add(Dropout(0.1))
 
 model.add(Conv2D(filters=12, kernel_size=2, padding='same', activation='relu'))
 model.add(MaxPooling2D(pool_size=2))
-model.add(Dropout(0.3))
+model.add(Dropout(0.2))
 
 model.add(Conv2D(filters=16, kernel_size=2, padding='same', activation='relu'))
 model.add(MaxPooling2D(pool_size=2))
-model.add(Dropout(0.4))
+model.add(Dropout(0.3))
 
 model.add(Flatten())
+
 model.add(Dense(256, activation='relu'))
 model.add(Dropout(0.4))
 
@@ -124,7 +123,7 @@ def main():
 
         data = {'Heading': '', 'Best_guess': '', 'Brick': '', 'Siding': '', 'Unknown': ''}
 
-        image_path = 'static/images/uploaded_images/example.jpg'
+        image_path = 'static/images/upload_images/example.jpg'
 
     return render_template('index.html', data=data, form_submit = form_submit, image_path=image_path)
 
