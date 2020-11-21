@@ -83,7 +83,7 @@ def main():
 
             request_files = request.files['image']
 
-            temp = 'static/uploaded_images/temp.jpg'
+            temp = 'static/upload_images/temp.jpg'
 
             request_files.save(temp)
 
