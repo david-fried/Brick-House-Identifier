@@ -3,55 +3,30 @@
 <html lang="en">
 
   <head>
-    <!-- <style>
-            body {background-color: blue;}
-            h1   {color: rgb(53, 14, 124);}
-            p    {color: black; font-size: small;}
-            .item { 
-        padding: 150px;
-        border: 1px solid black;
-        }
-    </style> -->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content = "IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Brick House Image Processing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/googlefonts.css">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
     <link rel="stylesheet" href="static/css/style.css">
-    <!-- <link rel="stylesheet" href="static/css/model_characteristics_style.css" type="text/css"> -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="static/css/style.css">   -->
   </head>
-
 
   <body>
 
-
     <!-- Navigation Bar -->
-
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f6f9fc;">
-        <a class="navbar-brand" href="/">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="navbar-brand" href="/model_characteristics">Model Characteristics<a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <a class="navbar-brand" href="/">Home</a>
+      <a class="navbar-brand" href="/model_characteristics">Model Characteristics</a>
+    </nav>
 
+    <div class="container-fluid">
 
       <div class="row">
         <div class="col-md-6"><br><br><br>
-          <h3>
-            Tuning the model
-          </h3>
+          <h3>Tuning the model</h3>
           <hr class="my-4">
           <br>
           <p>
@@ -152,56 +127,45 @@
             <p>Total parameters: 2,562,395<br>
             Trainable parameters: 2,562,395<br>
             Non-trainable parameters: 0</p>
-            <hr>
         </div>
         
         <div class="col-md-6">
           <br><br><br><br><br>
           <img src="static/images/model_accuracy.png" alt="Current Model"  width="500" ALIGN="center"/><br><br><br><br>
           <img src="static/images/model_loss.png" alt="Current Model"  width="500" ALIGN="center"/>
-        
-       
         </div>
-      </div>
-      
-      <style>
+    
+        <style>body{overflow-x:hidden;}</style>
 
-    body{
-       overflow-x:hidden;
-    }
-
-      </style>
-
-  <body>
-     <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <br><br>
-                 <div> <h1>Model Tree and Network Heatmap Visualization</h1></div>
-                
-                <hr>
-                 
-                 <div id="thumbwrap">
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/1.png" alt=""><span><img src="../static/images/model-tree-images/0_conv2d_input.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/2.png" alt=""><span><img src="../static/images/model-tree-images/1_conv2d.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/3.png" alt=""><span><img src="../static/images/model-tree-images/2_max_pooling2d.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/4.png" alt=""><span><img src="../static/images/model-tree-images/3_conv2d_1.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/5.png" alt=""><span><img src="../static/images/model-tree-images/4_max_pooling2d_1.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/6.png" alt=""><span><img src="../static/images/model-tree-images/5_dropout.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/7.png" alt=""><span><img src="../static/images/model-tree-images/6_conv2d_2.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/8.png" alt=""><span><img src="../static/images/model-tree-images/7_max_pooling2d_2.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/9.png" alt=""><span><img src="../static/images/model-tree-images/8_dropout_1.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/10.png" alt=""><span><img src="../static/images/model-tree-images/9_conv2d_3.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/11.png" alt=""><span><img src="../static/images/model-tree-images/10_max_pooling2d_3.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/12.png" alt=""><span><img src="../static/images/model-tree-images/11_dropout_2.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/13.png" alt=""><span><img src="../static/images/model-tree-images/12_conv2d_4.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/14.png" alt=""><span><img src="../static/images/model-tree-images/13_max_pooling2d_4.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/15.png" alt=""><span><img src="../static/images/model-tree-images/14_dropout_3.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/16.png" alt=""><span><img src="../static/images/model-tree-images/15_flatten.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/17.png" alt=""><span><img src="../static/images/model-tree-images/16_dense.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/18.png" alt=""><span><img src="../static/images/model-tree-images/17_dropout_4.png" alt=""></span></a>
-                      <a class="thumb" href="#"><img src="../static/images/model-tree-images/19.png" alt=""><span><img src="../static/images/model-tree-images/18_dense_1.png" alt=""></span></a>
-                        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <br><br><br><br>
+       <h3>Model Tree and Network Heatmap Visualization</h3>
+          
+          <hr>
+            
+            <div id="thumbwrap">
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/1.png" alt=""><span><img src="../static/images/model-tree-images/0_conv2d_input.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/2.png" alt=""><span><img src="../static/images/model-tree-images/1_conv2d.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/3.png" alt=""><span><img src="../static/images/model-tree-images/2_max_pooling2d.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/4.png" alt=""><span><img src="../static/images/model-tree-images/3_conv2d_1.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/5.png" alt=""><span><img src="../static/images/model-tree-images/4_max_pooling2d_1.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/6.png" alt=""><span><img src="../static/images/model-tree-images/5_dropout.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/7.png" alt=""><span><img src="../static/images/model-tree-images/6_conv2d_2.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/8.png" alt=""><span><img src="../static/images/model-tree-images/7_max_pooling2d_2.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/9.png" alt=""><span><img src="../static/images/model-tree-images/8_dropout_1.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/10.png" alt=""><span><img src="../static/images/model-tree-images/9_conv2d_3.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/11.png" alt=""><span><img src="../static/images/model-tree-images/10_max_pooling2d_3.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/12.png" alt=""><span><img src="../static/images/model-tree-images/11_dropout_2.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/13.png" alt=""><span><img src="../static/images/model-tree-images/12_conv2d_4.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/14.png" alt=""><span><img src="../static/images/model-tree-images/13_max_pooling2d_4.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/15.png" alt=""><span><img src="../static/images/model-tree-images/14_dropout_3.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/16.png" alt=""><span><img src="../static/images/model-tree-images/15_flatten.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/17.png" alt=""><span><img src="../static/images/model-tree-images/16_dense.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/18.png" alt=""><span><img src="../static/images/model-tree-images/17_dropout_4.png" alt=""></span></a>
+                <a class="thumb" href="#"><img src="../static/images/model-tree-images/19.png" alt=""><span><img src="../static/images/model-tree-images/18_dense_1.png" alt=""></span></a>
+            </div>
 
                 </div>
               </div> 

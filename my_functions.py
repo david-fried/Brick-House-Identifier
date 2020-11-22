@@ -6,12 +6,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage.transform import resize
 import urllib.request
+import requests
 import google_streetview.api
 import glob
 from config import gkey
 from datetime import datetime
 from urllib.error import HTTPError
 
+# Statuses from Google Streetview Metadata
+# https://developers.google.com/maps/documentation/streetview/metadata
+"""
+"OK"	Indicates that no errors occurred; a panorama is found and metadata is returned.
+"ZERO_RESULTS"	Indicates that no panorama could be found near the provided location. This may occur if a non-existent or invalid panorama ID is given.
+"NOT_FOUND"	Indicates that the address string provided in the location parameter could not be found. This may occur if a non-existent address is given.
+"OVER_QUERY_LIMIT"	Indicates that you have exceeded your daily quota or per-second quota for this API.
+"REQUEST_DENIED"	Indicates that your request was denied. This may occur if you did not use an API key or client ID, or if the Street View Static API is not activated in the Google Cloud Platform Console project containing your API key.
+"INVALID_REQUEST"	Generally indicates that the query parameters (address or latlng or components) are missing.
+"UNKNOWN_ERROR"	Indicates that the request could not be processed due to a server error. This is often a temporary status. The request may succeed if you try again.
+"""
 
 #returns classifications for an (uploaded) image
 
@@ -50,22 +62,35 @@ def model_classifications(model, image):
     return data, predictions, best_guess_category
 
 
-#returns model classifications and URL for user-typed address
+# Using user-typed address, retrieves image URL of house from GoolgeStreetView API call
+# and classifies image as brick, siding, or unknown.
 
 def address_form(model, user_typed_address):
 
     #this is the first part of the streetview, url up to the address, this url will return a 600x600px image
-    pre="https://maps.googleapis.com/maps/api/streetview?size=600x600&location="
+    pre='https://maps.googleapis.com/maps/api/streetview'
+
+    img_rqst = '?size=600x600&location='
 
     address = user_typed_address.replace(' ', '+')
     
     suf=f"&key={gkey}&fov=60"
 
-    URL = pre + address + suf
+    URL = pre + img_rqst + address + suf
+
+    request = pre + '/metadata' + img_rqst + address + suf
+
+    status = requests.get(request).json()['status']
 
     image = plt.imread(urllib.request.urlopen(URL), format='JPG')
 
     data, predictions, best_guess_category = model_classifications(model, image)
+
+    if status != 'OK':
+
+        data = {'Heading': '', 'Best_guess': '', 'Brick': '', 'Siding': '', 'Unknown': ''}
+
+        data['Best_guess'] = 'Please enter a valid address or location.'
 
     return (data, predictions, best_guess_category, address, URL)
 

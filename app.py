@@ -63,8 +63,7 @@ def main():
     # if website user clicks one of the submit buttons
     if request.method == "POST":
 
-        # if user submitted address, call API, save image to:
-        # 'static/images/address_submit/{ADDRESS_SUBMIT_COUNT}.jpg'
+        # if user has submitted an address, make API call to Google StreetView to retrieve image:
         if "address" in request.form:
 
             SUBMISSION_TYPE = 'address'
@@ -75,9 +74,10 @@ def main():
 
                 return redirect('/')
 
-            # return model predictions from user address input
+            # return model predictions, address, and Google StreetView image
             data, predictions, best_guess_category, address, URL = address_form(model, user_typed_address)
 
+            # image rendered in index.html
             image_path = URL
 
         # if user submitted image
@@ -104,20 +104,26 @@ def main():
             # return model_predictions from uploaded image
             data, predictions, best_guess_category = model_classifications(model, image)
 
-        # naming file based on: category of the highest prediction percentage, followed by prediction percentage,
-        # and time stamp (year, month, day, hour, second), and if the file was from an address (API call) the address is included at the end
-        
-        if SUBMISSION_TYPE == 'image':
-        
-            image_path = create_full_image_path(predictions, best_guess_category, address = None)
+            image_path = temp # delete this line, including the code to the left of this comment, after uncommenting disabled code below
 
-            copyfile(temp, image_path)
+        ##########The below code names the uploaded images and saved based on their classification. Code is temporarily disabled.############### 
+
+        # # naming file based on: category of the highest prediction percentage, followed by prediction percentage,
+        # # and time stamp (year, month, day, hour, second), and if the file was from an address (API call) the address is included at the end
         
-        else:
+        # if SUBMISSION_TYPE == 'image':
+        
+        #     image_path = create_full_image_path(predictions, best_guess_category, address = None)
 
-            saved_image_path = create_full_image_path(predictions, best_guess_category, address)
+        #     copyfile(temp, image_path)
+        
+        # else:
 
-            urllib.request.urlretrieve(URL, saved_image_path)
+        #     saved_image_path = create_full_image_path(predictions, best_guess_category, address)
+
+        #     urllib.request.urlretrieve(URL, saved_image_path)
+
+        ########################################################################################################################################
 
         form_submit = "form_anchor"
                 
@@ -126,6 +132,8 @@ def main():
         form_submit = None
 
         data = {'Heading': '', 'Best_guess': '', 'Brick': '', 'Siding': '', 'Unknown': ''}
+
+        data['Best_guess'] = '[Classification results display here]'
 
         image_path = 'static/uploaded_images/example.jpg'
 
