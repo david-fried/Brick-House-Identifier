@@ -25,6 +25,7 @@
     <div class="container-fluid">
 
       <div class="row">
+
         <div class="col-md-6"><br><br><br>
           <h3>Tuning the model</h3>
           <hr class="my-4">
@@ -137,77 +138,85 @@
     
         <style>body{overflow-x:hidden;}</style>
 
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <br><br><br><br>
-       <h3>Model Tree and Network Heatmap Visualization</h3>
+      </div>
+  
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <br><br><br><br>
+          <h3>Model Tree and Network Heatmap Visualization</h3>
           
           <hr>
             
-            <div id="thumbwrap">
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/1.png" alt=""><span><img src="../static/images/model-tree-images/0_conv2d_input.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/2.png" alt=""><span><img src="../static/images/model-tree-images/1_conv2d.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/3.png" alt=""><span><img src="../static/images/model-tree-images/2_max_pooling2d.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/4.png" alt=""><span><img src="../static/images/model-tree-images/3_conv2d_1.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/5.png" alt=""><span><img src="../static/images/model-tree-images/4_max_pooling2d_1.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/6.png" alt=""><span><img src="../static/images/model-tree-images/5_dropout.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/7.png" alt=""><span><img src="../static/images/model-tree-images/6_conv2d_2.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/8.png" alt=""><span><img src="../static/images/model-tree-images/7_max_pooling2d_2.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/9.png" alt=""><span><img src="../static/images/model-tree-images/8_dropout_1.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/10.png" alt=""><span><img src="../static/images/model-tree-images/9_conv2d_3.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/11.png" alt=""><span><img src="../static/images/model-tree-images/10_max_pooling2d_3.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/12.png" alt=""><span><img src="../static/images/model-tree-images/11_dropout_2.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/13.png" alt=""><span><img src="../static/images/model-tree-images/12_conv2d_4.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/14.png" alt=""><span><img src="../static/images/model-tree-images/13_max_pooling2d_4.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/15.png" alt=""><span><img src="../static/images/model-tree-images/14_dropout_3.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/16.png" alt=""><span><img src="../static/images/model-tree-images/15_flatten.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/17.png" alt=""><span><img src="../static/images/model-tree-images/16_dense.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/18.png" alt=""><span><img src="../static/images/model-tree-images/17_dropout_4.png" alt=""></span></a>
-                <a class="thumb" href="#"><img src="../static/images/model-tree-images/19.png" alt=""><span><img src="../static/images/model-tree-images/18_dense_1.png" alt=""></span></a>
-            </div>
+          <div id="thumbwrap">
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/1.png" alt=""><span><img src="../static/images/model-tree-images/0_conv2d_input.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/2.png" alt=""><span><img src="../static/images/model-tree-images/1_conv2d.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/3.png" alt=""><span><img src="../static/images/model-tree-images/2_max_pooling2d.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/4.png" alt=""><span><img src="../static/images/model-tree-images/3_conv2d_1.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/5.png" alt=""><span><img src="../static/images/model-tree-images/4_max_pooling2d_1.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/6.png" alt=""><span><img src="../static/images/model-tree-images/5_dropout.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/7.png" alt=""><span><img src="../static/images/model-tree-images/6_conv2d_2.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/8.png" alt=""><span><img src="../static/images/model-tree-images/7_max_pooling2d_2.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/9.png" alt=""><span><img src="../static/images/model-tree-images/8_dropout_1.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/10.png" alt=""><span><img src="../static/images/model-tree-images/9_conv2d_3.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/11.png" alt=""><span><img src="../static/images/model-tree-images/10_max_pooling2d_3.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/12.png" alt=""><span><img src="../static/images/model-tree-images/11_dropout_2.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/13.png" alt=""><span><img src="../static/images/model-tree-images/12_conv2d_4.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/14.png" alt=""><span><img src="../static/images/model-tree-images/13_max_pooling2d_4.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/15.png" alt=""><span><img src="../static/images/model-tree-images/14_dropout_3.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/16.png" alt=""><span><img src="../static/images/model-tree-images/15_flatten.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/17.png" alt=""><span><img src="../static/images/model-tree-images/16_dense.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/18.png" alt=""><span><img src="../static/images/model-tree-images/17_dropout_4.png" alt=""></span></a>
+              <a class="thumb" href="#"><img src="../static/images/model-tree-images/19.png" alt=""><span><img src="../static/images/model-tree-images/18_dense_1.png" alt=""></span></a>
+          </div>
 
-                </div>
-              </div> 
-      </div> 
-  </body>
-<style>
-#thumbwrap {
-  position: absolute;
-  top:-200; right: 200px;
-  /* padding: 10px; */
-  height: 100%;
-  width: 100%;
-/* position:relative; */
-  /* margin:25px auto; */
-  transform: scale(.38);
- 
-/* width:252px; height:252px; */
-}
-.thumb img { 
-/* border:1px solid #000; */
-/* margin:3px; */
-float:inline-start;
-}
-.thumb span { 
-  position:absolute;
-  visibility:hidden;
 
-}
-.thumb:hover, .thumb:hover span { 
-visibility:visible;
-top:-800; left:800px; 
-  z-index:1;
-  transform: scale(1.3);
-}
+        </div>
 
-div {
-  padding-top: 0px;
-  padding-right: 30px;
-  padding-bottom: 0px;
-  padding-left: 80px;
-}
-</style>
+      </div>
+
+    </div>
+
+    <style>
+    #thumbwrap {
+      position: absolute;
+      top:-200; right: 700px;
+      /* padding: 10px; */
+      /* height: 100%;
+      width: 100%; */
+    /* position:relative; */
+      /* margin:25px auto; */
+      transform: scale(.38);
+    
+    width:252px; height:252px;
+    }
+    .thumb img { 
+    /* border:1px solid #000; */
+    /* margin:3px; */
+    /* width: 20 px;} */
+    float:inline-start;
+    }
+    .thumb span { 
+      position:absolute;
+      visibility:hidden;
+
+    }
+    .thumb:hover, .thumb:hover span { 
+    visibility:visible;
+    top:-800; left:800px; 
+      z-index:1;
+      transform: scale(1.3);
+    }
+
+    div {
+      padding-top: 0px;
+      padding-right: 30px;
+      padding-bottom: 0px;
+      padding-left: 80px;
+    }
+    </style>
+
   </body>
 
 </html>

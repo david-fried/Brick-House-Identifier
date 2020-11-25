@@ -66,7 +66,7 @@ def main():
         # if user has submitted an address, make API call to Google StreetView to retrieve image:
         if "address" in request.form:
 
-            SUBMISSION_TYPE = 'address'
+            submission_type= 'address'
 
             user_typed_address = request.form["address"]
 
@@ -83,7 +83,7 @@ def main():
         # if user submitted image
         else:
 
-            SUBMISSION_TYPE = 'image'
+            submission_type= 'image'
 
             request_files = request.files['image']
 
@@ -111,7 +111,7 @@ def main():
         # # naming file based on: category of the highest prediction percentage, followed by prediction percentage,
         # # and time stamp (year, month, day, hour, second), and if the file was from an address (API call) the address is included at the end
         
-        # if SUBMISSION_TYPE == 'image':
+        # if submission_type== 'image':
         
         #     image_path = create_full_image_path(predictions, best_guess_category, address = None)
 

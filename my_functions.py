@@ -56,6 +56,8 @@ def model_classifications(model, image):
         data['Best_guess'] = 'Unknown.'
 
     for i, prediction in enumerate(predictions):
+
+        # print(classifications[i], predictions[i])
      
         data[classifications[i]] = f'{classifications[i]}: {int(round(100*prediction,0))}%'
  
