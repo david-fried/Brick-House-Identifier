@@ -1,2 +1,2 @@
 # GMAPS API Key
-gkey = "AIzaSyA7syV4Z2LAYZ64QqKCcmUrGGN18-PmqX4"
+gkey = "Update with your Google API Key"
